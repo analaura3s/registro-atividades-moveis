@@ -44,7 +44,7 @@ export default defineConfig({
             },
           },
           {
-            urlPattern: /^https:\/\/api\.exemplo\.com\/.*/i,
+            urlPattern: /^http:\/\/localhost:8001\/.*/i,
             handler: 'NetworkFirst',
             options: {
               cacheName: 'api-cache',
@@ -52,10 +52,10 @@ export default defineConfig({
                 maxEntries: 50,
                 maxAgeSeconds: 60 * 60 * 24, // 24 horas
               },
+              networkTimeoutSeconds: 10,
               cacheableResponse: {
                 statuses: [0, 200],
               },
-              networkTimeoutSeconds: 10,
             },
           },
         ],
